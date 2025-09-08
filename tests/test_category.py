@@ -4,4 +4,4 @@ def test_first_category(first_category):
     assert len(first_category.products) == 2
 
     assert first_category.category_count == 1
-    assert  first_category.product_count == 2
+    assert first_category.product_count == 2

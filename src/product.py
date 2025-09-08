@@ -1,5 +1,3 @@
-
-
 class Product:
     name: str
     description: str
@@ -13,9 +11,10 @@ class Product:
         self.price = price
         self.quantity = quantity
 
+
 if __name__ == "__main__":
-    product1 = Product('Samsung Galaxy S21', 'Cмартфон на android', '32000', '100')
-    product2 = Product('Iphone 11', 'Смартфон на IOS', '44000', '67')
+    product1 = Product("Samsung Galaxy S21", "Cмартфон на android", "32000", "100")
+    product2 = Product("Iphone 11", "Смартфон на IOS", "44000", "67")
 
     print(product1.name)
     print(product1.price)
