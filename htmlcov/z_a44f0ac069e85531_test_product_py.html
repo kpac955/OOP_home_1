@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">26 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">26<span class="text"> run</span></button>
+            <span class="text">39 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">39<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="index.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.10.6">coverage.py v7.10.6</a>,
-            created at 2025-10-26 23:05 +0400
+            created at 2025-11-01 21:47 +0400
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -132,6 +132,27 @@
     <p class="run"><span class="n"><a id="t50" href="#t50">50</a></span><span class="t">    <span class="key">assert</span> <span class="nam">new_product</span><span class="op">.</span><span class="nam">description</span> <span class="op">==</span> <span class="str">"&#1041;&#1102;&#1076;&#1078;&#1077;&#1090;&#1085;&#1099;&#1081; &#1089;&#1084;&#1072;&#1088;&#1090;&#1092;&#1086;&#1085;"</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t51" href="#t51">51</a></span><span class="t">    <span class="key">assert</span> <span class="nam">new_product</span><span class="op">.</span><span class="nam">price</span> <span class="op">==</span> <span class="num">25000.0</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t52" href="#t52">52</a></span><span class="t">    <span class="key">assert</span> <span class="nam">new_product</span><span class="op">.</span><span class="nam">quantity</span> <span class="op">==</span> <span class="num">7</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t54" href="#t54">54</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t55" href="#t55">55</a></span><span class="t"><span class="key">def</span> <span class="nam">test_str_product</span><span class="op">(</span><span class="nam">product_1</span><span class="op">,</span> <span class="nam">product_2</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t56" href="#t56">56</a></span><span class="t">    <span class="key">assert</span> <span class="str">"Samsung Galaxy S21"</span> <span class="key">in</span> <span class="nam">str</span><span class="op">(</span><span class="nam">product_1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t57" href="#t57">57</a></span><span class="t">    <span class="key">assert</span> <span class="str">"42000.0"</span> <span class="key">in</span> <span class="nam">str</span><span class="op">(</span><span class="nam">product_1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t58" href="#t58">58</a></span><span class="t">    <span class="key">assert</span> <span class="str">"3"</span> <span class="key">in</span> <span class="nam">str</span><span class="op">(</span><span class="nam">product_1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t59" href="#t59">59</a></span><span class="t">    <span class="key">assert</span> <span class="str">"&#1088;&#1091;&#1073;."</span> <span class="key">in</span> <span class="nam">str</span><span class="op">(</span><span class="nam">product_1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t60" href="#t60">60</a></span><span class="t">    <span class="key">assert</span> <span class="str">"&#1054;&#1089;&#1090;&#1072;&#1090;&#1086;&#1082;:"</span> <span class="key">in</span> <span class="nam">str</span><span class="op">(</span><span class="nam">product_1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t61" href="#t61">61</a></span><span class="t">    <span class="key">assert</span> <span class="str">"&#1096;&#1090;."</span> <span class="key">in</span> <span class="nam">str</span><span class="op">(</span><span class="nam">product_1</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t62" href="#t62">62</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t63" href="#t63">63</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t64" href="#t64">64</a></span><span class="t"><span class="key">def</span> <span class="nam">test_add_product</span><span class="op">(</span><span class="nam">product_1</span><span class="op">,</span> <span class="nam">product_2</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t65" href="#t65">65</a></span><span class="t">    <span class="nam">result</span> <span class="op">=</span> <span class="nam">product_1</span> <span class="op">+</span> <span class="nam">product_2</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t66" href="#t66">66</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t67" href="#t67">67</a></span><span class="t">    <span class="com"># &#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1072; &#1085;&#1072; &#1090;&#1086;, &#1095;&#1090;&#1086; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090; - &#1095;&#1080;&#1089;&#1083;&#1086;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t68" href="#t68">68</a></span><span class="t">    <span class="key">assert</span> <span class="nam">isinstance</span><span class="op">(</span><span class="nam">result</span><span class="op">,</span> <span class="op">(</span><span class="nam">int</span><span class="op">,</span> <span class="nam">float</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t69" href="#t69">69</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t70" href="#t70">70</a></span><span class="t">    <span class="com"># &#1055;&#1088;&#1086;&#1074;&#1077;&#1088;&#1103;&#1077;&#1084; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1100; &#1074;&#1099;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1080;&#1081;</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t71" href="#t71">71</a></span><span class="t">    <span class="nam">expected</span> <span class="op">=</span> <span class="op">(</span><span class="num">42000.0</span> <span class="op">*</span> <span class="num">3</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="num">44000.0</span> <span class="op">*</span> <span class="num">5</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t72" href="#t72">72</a></span><span class="t">    <span class="key">assert</span> <span class="nam">result</span> <span class="op">==</span> <span class="nam">expected</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t73" href="#t73">73</a></span><span class="t">    <span class="key">assert</span> <span class="nam">result</span> <span class="op">==</span> <span class="num">346000.0</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -141,7 +162,7 @@
             <a class="nav" href="index.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.10.6">coverage.py v7.10.6</a>,
-            created at 2025-10-26 23:05 +0400
+            created at 2025-11-01 21:47 +0400
         </p>
     </div>
 </footer>
