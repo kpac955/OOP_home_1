@@ -60,6 +60,7 @@ def test_str_product(product_1, product_2):
     assert "Остаток:" in str(product_1)
     assert "шт." in str(product_1)
 
+
 def test_add_product(product_1, product_2):
     result = product_1 + product_2
 

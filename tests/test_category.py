@@ -1,7 +1,7 @@
 def test_first_category(first_category):
     assert first_category.name == "Cмартфоны"
     assert first_category.description == "Телефоны на операционной системе Android"
-    products_list = first_category.products.split('\n')
+    products_list = first_category.products.split("\n")
     assert len(products_list) == 2
 
 
@@ -30,3 +30,16 @@ def test_products_property_content(first_category):
 
     assert "5" in products_output
     assert "7" in products_output
+
+
+def test_str_category(first_category):
+    """Тест __str__ метода"""
+    result = str(first_category)
+
+    assert "Cмартфоны" in result
+
+    # Проверяем, что строка содержит правильное общее количество товаров
+    assert "количество продуктов: 12 шт." in result
+
+    # Проверяем соответствие формату
+    assert result == "Cмартфоны, количество продуктов: 12 шт."
