@@ -8,8 +8,8 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.__price = price
-        self.quantity = quantity
+        self.__price = float(price)
+        self.quantity = int(quantity)
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
@@ -17,6 +17,8 @@ class Product:
     def __add__(self, other):
         if not isinstance(other, Product):
             return
+        if type(self) != type(other):
+            raise TypeError('Можно складывать товары только из одинаковых классов продуктов')
         return (self.price * self.quantity) + (other.price * other.quantity)
 
     @property
@@ -25,6 +27,7 @@ class Product:
 
     @price.setter
     def price(self, new_price):
+        new_price = float(new_price)
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
         else:
@@ -51,6 +54,36 @@ class Product:
                 return same_product
 
         return cls(name, description, price, quantity)
+
+
+
+class Smartphone(Product):
+    efficiency: str
+    model: str
+    memory: int
+    color: str
+
+    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
+
+
+class LawnGrass(Product):
+    country: str
+    germination_period: int
+    color: str
+
+    def __init__(self, name, description, price, quantity, country, germination_period, color):
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color
+
+
+
 
 
 if __name__ == "__main__":

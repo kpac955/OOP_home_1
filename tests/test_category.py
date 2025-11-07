@@ -1,3 +1,7 @@
+import pytest
+from src.category import Product, Category
+
+
 def test_first_category(first_category):
     assert first_category.name == "Cмартфоны"
     assert first_category.description == "Телефоны на операционной системе Android"
@@ -43,3 +47,20 @@ def test_str_category(first_category):
 
     # Проверяем соответствие формату
     assert result == "Cмартфоны, количество продуктов: 12 шт."
+
+
+def test_add_regular_product_to_category():
+
+    category = Category("Тест", "Категория")
+    product = Product("Обычный товар", "Описание", 100.0, 10)
+
+    category.add_product(product)
+
+    assert "Обычный товар" in category.products
+
+
+def test_cannot_add_string_to_category():
+    category = Category("Тест", "Категория")
+
+    with pytest.raises(TypeError):
+        category.add_product("просто строка")
