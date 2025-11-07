@@ -1,5 +1,6 @@
 import pytest
-from src.category import Product, Category
+
+from src.category import Category, Product
 
 
 def test_first_category(first_category):

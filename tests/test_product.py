@@ -1,5 +1,4 @@
-from src.product import Product
-from src.product import Smartphone, LawnGrass
+from src.product import LawnGrass, Product, Smartphone
 
 
 def test_product_1_init(product_1):
@@ -73,11 +72,11 @@ def test_add_product(product_1, product_2):
     assert result == expected
     assert result == 346000.0
 
-#тесты на инициализацию классов наследников
+
+# тесты на инициализацию классов наследников
 def test_Smartphone_init():
     smartphone = Smartphone(
-        "Phone", "Description", 1000.0, 5,
-        "Snapdragon", "Model X", 256, "Black"
+        "Phone", "Description", 1000.0, 5, "Snapdragon", "Model X", 256, "Black"
     )
 
     assert smartphone.name == "Phone"
@@ -89,8 +88,7 @@ def test_Smartphone_init():
 
 def test_LawnGrass_init():
     grass = LawnGrass(
-        "Японская поросль", "Description", 50.0, 100,
-        "Japan", 24, "Light Green"
+        "Японская поросль", "Description", 50.0, 100, "Japan", 24, "Light Green"
     )
 
     assert grass.name == "Японская поросль"
@@ -98,13 +96,15 @@ def test_LawnGrass_init():
     assert grass.germination_period == 24
     assert grass.color == "Light Green"
 
-#сложение товаров одного класса
+
+# сложение товаров одного класса
 def test_add_same_class_products(product_1, product_2):
     result = product_1 + product_2
     expected = (42000.0 * 3) + (44000.0 * 5)
     assert result == expected
 
-#сложение продукта с не продуктом
+
+# сложение продукта с не продуктом
 def test_add_with_non_product():
     product = Product("Товар", "Описание", 100.0, 10)
 

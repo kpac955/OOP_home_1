@@ -17,8 +17,10 @@ class Product:
     def __add__(self, other):
         if not isinstance(other, Product):
             return
-        if type(self) != type(other):
-            raise TypeError('Можно складывать товары только из одинаковых классов продуктов')
+        if type(self) is not type(other):
+            raise TypeError(
+                "Можно складывать товары только из одинаковых классов продуктов"
+            )
         return (self.price * self.quantity) + (other.price * other.quantity)
 
     @property
@@ -56,14 +58,15 @@ class Product:
         return cls(name, description, price, quantity)
 
 
-
 class Smartphone(Product):
     efficiency: str
     model: str
     memory: int
     color: str
 
-    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+    def __init__(
+        self, name, description, price, quantity, efficiency, model, memory, color
+    ):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
@@ -76,14 +79,13 @@ class LawnGrass(Product):
     germination_period: int
     color: str
 
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
+    def __init__(
+        self, name, description, price, quantity, country, germination_period, color
+    ):
         super().__init__(name, description, price, quantity)
         self.country = country
         self.germination_period = germination_period
         self.color = color
-
-
-
 
 
 if __name__ == "__main__":
