@@ -88,12 +88,12 @@ def test_Smartphone_init():
 
 def test_LawnGrass_init():
     grass = LawnGrass(
-        "Японская поросль", "Description", 50.0, 100, "Japan", 24, "Light Green"
+        "Японская поросль", "Description", 50.0, 100, "Japan", "20 дней", "Light Green"
     )
 
     assert grass.name == "Японская поросль"
     assert grass.country == "Japan"
-    assert grass.germination_period == 24
+    assert grass.germination_period == "20 дней"
     assert grass.color == "Light Green"
 
 

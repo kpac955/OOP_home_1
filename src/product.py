@@ -76,7 +76,7 @@ class Smartphone(Product):
 
 class LawnGrass(Product):
     country: str
-    germination_period: int
+    germination_period: str
     color: str
 
     def __init__(
