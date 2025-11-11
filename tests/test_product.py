@@ -1,4 +1,5 @@
-from src.product import LawnGrass, Product, Smartphone
+from src.product import (BaseProduct, LawnGrass, PrintObject, Product,
+                         Smartphone)
 
 
 def test_product_1_init(product_1):
@@ -110,3 +111,37 @@ def test_add_with_non_product():
 
     result = product + "no product"
     assert result is None
+
+
+def test_product_from_base_product():
+    """Тест, что Product наследуется от BaseProduct"""
+    assert issubclass(Product, BaseProduct)
+
+
+def test_product_from_print_object():
+    """Тест, что Product наследуется от PrintObject"""
+    assert issubclass(Product, PrintObject)
+
+
+def test_product_implements_all_abstract_methods():
+    """Тест, что Product реализует все абстрактные методы BaseProduct"""
+    product = Product("Test", "Desc", 100.0, 10)
+
+    assert hasattr(product, "__init__")
+    assert hasattr(product, "__str__")
+    assert hasattr(product, "__add__")
+    assert hasattr(product, "price")
+    assert hasattr(Product, "new_product")
+
+
+def test_super_in_constructors():
+    """Тест, что super() правильно используется в конструкторах"""
+    product = Product("Product", "Description", 100.0, 10)
+    smartphone = Smartphone(
+        "SmartPhone", "Description", 1000.0, 7, "Efficiency", "Model", 512, "Color"
+    )
+    grass = LawnGrass("Grass", "Description", 50.0, 100, "Country", "Period", "Color")
+
+    assert product.name == "Product"
+    assert smartphone.efficiency == "Efficiency"
+    assert grass.country == "Country"

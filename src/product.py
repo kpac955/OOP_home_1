@@ -13,7 +13,7 @@ class PrintObject:
         class_name = self.__class__.__name__
         attributes = []
         for key, value in self.__dict__.items():
-            if not key.startswith('_'):
+            if not key.startswith("_"):
                 attributes.append(f"{key}={repr(value)}")
         return f"{class_name}({', '.join(attributes)})"
 
@@ -57,13 +57,13 @@ class Product(PrintObject, BaseProduct):
     product_count = 0
 
     def __init__(self, name, description, price, quantity):
-        #Инициализируем атрибуты
+        # Инициализируем атрибуты
         self.name = name
         self.description = description
         self.__price = float(price)
         self.quantity = int(quantity)
 
-        #Вызов конструктора миксина и BaseProduct
+        # Вызов конструктора миксина и BaseProduct
         super().__init__(name, description, price, quantity)
 
     def __str__(self):
@@ -120,15 +120,15 @@ class Smartphone(Product):
     color: str
 
     def __init__(
-            self, name, description, price, quantity, efficiency, model, memory, color
+        self, name, description, price, quantity, efficiency, model, memory, color
     ):
-        #Инициализируем свои атрибуты
+        # Инициализируем свои атрибуты
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
         self.color = color
 
-        #Вызов родительского конструктора
+        # Вызов родительского конструктора
         super().__init__(name, description, price, quantity)
 
 
@@ -138,14 +138,14 @@ class LawnGrass(Product):
     color: str
 
     def __init__(
-            self, name, description, price, quantity, country, germination_period, color
+        self, name, description, price, quantity, country, germination_period, color
     ):
-        #Инициализируем свои атрибуты
+        # Инициализируем свои атрибуты
         self.country = country
         self.germination_period = germination_period
         self.color = color
 
-        #Вызов родительского конструктора
+        # Вызов родительского конструктора
         super().__init__(name, description, price, quantity)
 
 
@@ -162,5 +162,7 @@ if __name__ == "__main__":
     print(product2.name)
     print(product2.price)
 
-    smartphone = Smartphone("iPhone 17", "Флагман", "147000", "7", "Apple A19 Pro", "17 Pro", "1TB", "Black")
+    smartphone = Smartphone(
+        "iPhone 17", "Флагман", "147000", "7", "Apple A19 Pro", "17 Pro", "1TB", "Black"
+    )
     grass = LawnGrass("Трава", "Газонная", "1000", "50", "Япония", "28 дней", "Зеленая")
