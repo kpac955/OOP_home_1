@@ -1,6 +1,23 @@
 from abc import ABC, abstractmethod
 
 
+class PrintObject:
+    """Миксин для логирования создания объектов"""
+
+    def __init__(self, *args, **kwargs):
+        # Вызываем конструктор следующего класса в цепочке наследования
+        super().__init__(*args, **kwargs)
+        print(f"Создан объект: {self.__repr__()}")
+
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        attributes = []
+        for key, value in self.__dict__.items():
+            if not key.startswith('_'):
+                attributes.append(f"{key}={repr(value)}")
+        return f"{class_name}({', '.join(attributes)})"
+
+
 class BaseProduct(ABC):
     """Абстрактный базовый класс для всех продуктов"""
 
@@ -32,7 +49,7 @@ class BaseProduct(ABC):
         pass
 
 
-class Product(BaseProduct):
+class Product(PrintObject, BaseProduct):
     name: str
     description: str
     price: float
@@ -40,10 +57,14 @@ class Product(BaseProduct):
     product_count = 0
 
     def __init__(self, name, description, price, quantity):
+        #Инициализируем атрибуты
         self.name = name
         self.description = description
         self.__price = float(price)
         self.quantity = int(quantity)
+
+        #Вызов конструктора миксина и BaseProduct
+        super().__init__(name, description, price, quantity)
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
@@ -101,11 +122,14 @@ class Smartphone(Product):
     def __init__(
             self, name, description, price, quantity, efficiency, model, memory, color
     ):
-        super().__init__(name, description, price, quantity)
+        #Инициализируем свои атрибуты
         self.efficiency = efficiency
         self.model = model
         self.memory = memory
         self.color = color
+
+        #Вызов родительского конструктора
+        super().__init__(name, description, price, quantity)
 
 
 class LawnGrass(Product):
@@ -116,10 +140,13 @@ class LawnGrass(Product):
     def __init__(
             self, name, description, price, quantity, country, germination_period, color
     ):
-        super().__init__(name, description, price, quantity)
+        #Инициализируем свои атрибуты
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+        #Вызов родительского конструктора
+        super().__init__(name, description, price, quantity)
 
 
 if __name__ == "__main__":
@@ -134,3 +161,6 @@ if __name__ == "__main__":
 
     print(product2.name)
     print(product2.price)
+
+    smartphone = Smartphone("iPhone 17", "Флагман", "147000", "7", "Apple A19 Pro", "17 Pro", "1TB", "Black")
+    grass = LawnGrass("Трава", "Газонная", "1000", "50", "Япония", "28 дней", "Зеленая")
