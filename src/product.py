@@ -50,6 +50,8 @@ class BaseProduct(ABC):
 
 
 class Product(PrintObject, BaseProduct):
+    """Класс товара с основными характеристиками"""
+
     name: str
     description: str
     price: float
@@ -107,13 +109,15 @@ class Product(PrintObject, BaseProduct):
             if same_product.name == name:
                 same_product.quantity += quantity
                 same_product.price = max(same_product.price, price)
-                print(f"Товар {name} существует " f"Цена и количество обновлены")
+                print(f"Товар {name} существует. Цена и количество обновлены.")
                 return same_product
 
         return cls(name, description, price, quantity)
 
 
 class Smartphone(Product):
+    """Класс смартфон с дополнительными характеристиками"""
+
     efficiency: str
     model: str
     memory: int
@@ -133,6 +137,8 @@ class Smartphone(Product):
 
 
 class LawnGrass(Product):
+    """Класс газонной травы с дополнительными характеристиками"""
+
     country: str
     germination_period: str
     color: str
@@ -150,7 +156,7 @@ class LawnGrass(Product):
 
 
 if __name__ == "__main__":
-    product1 = Product("Samsung Galaxy S21", "Cмартфон на android", "32000", "100")
+    product1 = Product("Samsung Galaxy S21", "Телефон на android", "32000", "100")
     product2 = Product("Iphone 11", "Смартфон на IOS", "44000", "67")
 
     print(product1.name)

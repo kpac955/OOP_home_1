@@ -1,5 +1,4 @@
-from src.product import (BaseProduct, LawnGrass, PrintObject, Product,
-                         Smartphone)
+from src.product import BaseProduct, LawnGrass, PrintObject, Product, Smartphone
 
 
 def test_product_1_init(product_1):
