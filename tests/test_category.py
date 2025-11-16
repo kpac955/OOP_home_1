@@ -65,3 +65,25 @@ def test_cannot_add_string_to_category():
 
     with pytest.raises(TypeError):
         category.add_product("просто строка")
+
+
+def test_average_price_with_existing_products(first_category):
+    """Тест: average_price возвращает правильную среднюю цену для категории с товарами"""
+    average = first_category.average_price()
+    expected = (42000.0 + 45000.0) / 2  # Среднее двух товаров в фикстуре
+    assert average == expected
+
+
+def test_average_price_empty_category_returns_zero():
+    """Тест: average_price возвращает 0 для пустой категории"""
+    empty_category = Category("Пустая", "Категория без товаров")
+    assert empty_category.average_price() == 0
+
+
+def test_average_price_single_product_returns_its_price():
+    """Тест: average_price для категории с одним товаром возвращает его цену"""
+    category = Category("Один товар", "Категория")
+    product = Product("Товар", "Описание", 2500.0, 10)
+    category.add_product(product)
+
+    assert category.average_price() == 2500.0

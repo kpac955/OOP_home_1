@@ -30,3 +30,17 @@ class Category:
     @property
     def products(self):
         return "\n".join(str(product) for product in self.__products)
+
+    def average_price(self):
+        """Метод подсчета среднего ценника всех товаров в категории. Обрабатывает случаи
+        когда нет товаров и при делении суммы всех товаров на ноль"""
+
+        # Если список пустой
+        if not self.__products:
+            return 0
+        try:
+            total_price = sum(product.price for product in self.__products)
+            average = total_price / len(self.__products)
+            return average
+        except ZeroDivisionError:
+            return 0

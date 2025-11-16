@@ -59,11 +59,16 @@ class Product(PrintObject, BaseProduct):
     product_count = 0
 
     def __init__(self, name, description, price, quantity):
+
+        quantity_int = int(quantity)
+        if quantity_int <= 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+
         # Инициализируем атрибуты
         self.name = name
         self.description = description
         self.__price = float(price)
-        self.quantity = int(quantity)
+        self.quantity = quantity_int
 
         # Вызов конструктора миксина и BaseProduct
         super().__init__(name, description, price, quantity)
@@ -104,6 +109,9 @@ class Product(PrintObject, BaseProduct):
         description = products_data["description"]
         price = products_data["price"]
         quantity = products_data["quantity"]
+
+        if int(quantity) <= 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
 
         for same_product in products_list:
             if same_product.name == name:
@@ -172,3 +180,14 @@ if __name__ == "__main__":
         "iPhone 17", "Флагман", "147000", "7", "Apple A19 Pro", "17 Pro", "1TB", "Black"
     )
     grass = LawnGrass("Трава", "Газонная", "1000", "50", "Япония", "28 дней", "Зеленая")
+
+    try:
+        zero_product = {
+            "name": "Zero Product",
+            "description": "test",
+            "price": "100",
+            "quantity": "0",
+        }
+        Product.new_product(zero_product)
+    except ValueError as e:
+        print(f"Поймано исключение в методе new_product: {e}")

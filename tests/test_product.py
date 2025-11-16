@@ -1,4 +1,7 @@
-from src.product import BaseProduct, LawnGrass, PrintObject, Product, Smartphone
+import pytest
+
+from src.product import (BaseProduct, LawnGrass, PrintObject, Product,
+                         Smartphone)
 
 
 def test_product_1_init(product_1):
@@ -144,3 +147,34 @@ def test_super_in_constructors():
     assert product.name == "Product"
     assert smartphone.efficiency == "Efficiency"
     assert grass.country == "Country"
+
+
+def test_product_zero_quantity_raises_value_error():
+    """Тест на создание Product с quantity=0 вызывает ValueError"""
+    with pytest.raises(
+        ValueError, match="Товар с нулевым количеством не может быть добавлен"
+    ):
+        Product("Тестовый товар", "Описание", 1000.0, 0)
+
+
+def test_product_negative_quantity_raises_value_error():
+    """Тест: создание Product с отрицательным quantity вызывает ValueError"""
+    with pytest.raises(
+        ValueError, match="Товар с нулевым количеством не может быть добавлен"
+    ):
+        Product("Тестовый товар", "Описание", 1000.0, -5)
+
+
+def test_new_product_zero_quantity_raises_value_error():
+    """Тест: создание товара через new_product с quantity=0 вызывает ValueError"""
+    products_data = {
+        "name": "Тестовый товар",
+        "description": "Описание",
+        "price": 1000.0,
+        "quantity": 0,
+    }
+
+    with pytest.raises(
+        ValueError, match="Товар с нулевым количеством не может быть добавлен"
+    ):
+        Product.new_product(products_data)
