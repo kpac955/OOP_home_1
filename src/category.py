@@ -1,0 +1,46 @@
+from src.product import Product
+
+
+class Category:
+    name: str
+    description: str
+    products: list
+    category_count = 0
+    product_count = 0
+
+    def __init__(self, name, description, products=None):
+        self.name = name
+        self.description = description
+        self.__products = products if products is not None else []
+        Category.category_count += 1
+        Category.product_count += len(self.__products)
+
+    def __str__(self):
+        all_count_quantity = sum(product.quantity for product in self.__products)
+        return f"{self.name}, количество продуктов: {all_count_quantity} шт."
+
+    def add_product(self, product):
+        if not isinstance(product, Product):
+            raise TypeError(
+                "Можно добавлять только объекты класса Product или его наследников"
+            )
+        self.__products.append(product)
+        Category.product_count += 1
+
+    @property
+    def products(self):
+        return "\n".join(str(product) for product in self.__products)
+
+    def average_price(self):
+        """Метод подсчета среднего ценника всех товаров в категории. Обрабатывает случаи
+        когда нет товаров и при делении суммы всех товаров на ноль"""
+
+        # Если список пустой
+        if not self.__products:
+            return 0
+        try:
+            total_price = sum(product.price for product in self.__products)
+            average = total_price / len(self.__products)
+            return average
+        except ZeroDivisionError:
+            return 0
